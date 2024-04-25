@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Project from './Project/Project';
+import html2canvas from "html2canvas"
+import { useEffect } from 'react';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+  useEffect(() => {
+
+    html2canvas(document.querySelector(".container" ),{ useCORS: true }).then(canvas => {
+      document.body.appendChild(canvas )
+    });
+  }, [])
+
+
+    return (
+    <div>
+    <Project/>
+
+  
+   </div>
+   
+    
   );
 }
 
